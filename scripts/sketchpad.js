@@ -116,6 +116,7 @@ Sketchpad.prototype._stroke = function(start, end, color, size, compositeOperati
 //
 
 Sketchpad.prototype._mouseDown = function(event) {
+  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   this._lastPosition = this._cursorPosition(event);
   this._currentStroke.color = this.color;
   this._currentStroke.size = this.penSize;
@@ -154,6 +155,7 @@ Sketchpad.prototype._touchStart = function(event) {
   if (this._sketching) {
     return;
   }
+  this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   this._lastPosition = this._cursorPosition(event.changedTouches[0]);
   this._currentStroke.color = this.color;
   this._currentStroke.size = this.penSize;
